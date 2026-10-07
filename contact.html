@@ -1,0 +1,2440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta name="description"
+          content="Contact us directly about full-stack development, programming languages, websites, applications, databases, APIs and software development.">
+
+    <meta name="theme-color" content="#03070c">
+
+    <title>Contact | Full Stack Development</title>
+
+
+    <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: #03070c;
+
+            color: #ffffff;
+
+            line-height: 1.6;
+
+            overflow-x: hidden;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        :root {
+
+            --gold: #d4af37;
+
+            --light-gold: #f1d477;
+
+            --dark: #03070c;
+
+            --dark-two: #050b12;
+
+            --card: #07111c;
+
+            --text: #dce2e8;
+
+            --muted: #8d99a8;
+
+            --whatsapp: #25d366;
+
+            --border: rgba(212,175,55,0.18);
+        }
+
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
+            background:
+                rgba(3,7,12,0.88);
+
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
+
+            border-bottom:
+                1px solid
+                rgba(212,175,55,0.15);
+
+            transition:
+                0.4s ease;
+        }
+
+
+        header.scrolled {
+
+            background:
+                rgba(2,5,9,0.98);
+
+            box-shadow:
+                0 10px 40px
+                rgba(0,0,0,0.5);
+        }
+
+
+        .navbar {
+
+            width: 92%;
+
+            max-width: 1400px;
+
+            min-height: 80px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            flex-shrink: 0;
+        }
+
+
+        .logo img {
+
+            width: 48px;
+
+            height: 48px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border:
+                2px solid
+                var(--gold);
+
+            box-shadow:
+                0 0 20px
+                rgba(212,175,55,0.25);
+        }
+
+
+        .logo span {
+
+            color:
+                var(--light-gold);
+
+            font-size:
+                1rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                1px;
+        }
+
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+
+        .nav-links a {
+
+            position: relative;
+
+            padding:
+                10px 16px;
+
+            color:
+                #dce2e8;
+
+            font-size:
+                0.95rem;
+
+            transition:
+                0.3s ease;
+        }
+
+
+        .nav-links a::after {
+
+            content: "";
+
+            position: absolute;
+
+            bottom: 2px;
+
+            left: 50%;
+
+            width: 0;
+
+            height: 2px;
+
+            background:
+                var(--gold);
+
+            transform:
+                translateX(-50%);
+
+            transition:
+                0.3s ease;
+        }
+
+
+        .nav-links a:hover,
+        .nav-links a.active {
+
+            color:
+                var(--light-gold);
+        }
+
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+
+            width: 55%;
+        }
+
+
+
+        /* =========================================
+           HAMBURGER
+        ========================================= */
+
+        .menu-toggle {
+
+            display: none;
+
+            width: 42px;
+
+            height: 42px;
+
+            border:
+                1px solid
+                rgba(212,175,55,0.4);
+
+            border-radius: 8px;
+
+            background:
+                rgba(255,255,255,0.03);
+
+            cursor: pointer;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 5px;
+        }
+
+
+        .menu-toggle span {
+
+            width: 23px;
+
+            height: 2px;
+
+            background:
+                var(--gold);
+
+            transition:
+                0.3s ease;
+        }
+
+
+        .menu-toggle.active span:nth-child(1) {
+
+            transform:
+                translateY(7px)
+                rotate(45deg);
+        }
+
+
+        .menu-toggle.active span:nth-child(2) {
+
+            opacity: 0;
+        }
+
+
+        .menu-toggle.active span:nth-child(3) {
+
+            transform:
+                translateY(-7px)
+                rotate(-45deg);
+        }
+
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+
+            min-height:
+                68vh;
+
+            padding:
+                150px 6% 80px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            text-align:
+                center;
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 20% 30%,
+                    rgba(0,170,255,0.09),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 80% 60%,
+                    rgba(212,175,55,0.12),
+                    transparent 35%
+                ),
+
+                #03070c;
+        }
+
+
+        .hero::before {
+
+            content: "";
+
+            position:
+                absolute;
+
+            width:
+                500px;
+
+            height:
+                500px;
+
+            border-radius:
+                50%;
+
+            border:
+                1px solid
+                rgba(212,175,55,0.08);
+
+            animation:
+                rotate 25s linear infinite;
+        }
+
+
+        .hero-content {
+
+            max-width:
+                900px;
+
+            position:
+                relative;
+
+            z-index:
+                2;
+        }
+
+
+        .small-title {
+
+            color:
+                var(--gold);
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                4px;
+
+            font-size:
+                0.78rem;
+
+            margin-bottom:
+                18px;
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(2.5rem,7vw,5.5rem);
+
+            line-height:
+                1.05;
+
+            margin-bottom:
+                25px;
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--gold);
+        }
+
+
+        .hero p {
+
+            max-width:
+                750px;
+
+            margin:
+                auto;
+
+            color:
+                var(--text);
+
+            font-size:
+                1.05rem;
+        }
+
+
+
+        /* =========================================
+           CONTACT SECTION
+        ========================================= */
+
+        .contact-section {
+
+            padding:
+                100px 6%;
+
+            background:
+                #050b12;
+        }
+
+
+        .section-heading {
+
+            max-width:
+                800px;
+
+            margin:
+                0 auto 55px;
+
+            text-align:
+                center;
+        }
+
+
+        .section-heading .label {
+
+            color:
+                var(--gold);
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                3px;
+
+            font-size:
+                0.78rem;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .section-heading h2 {
+
+            font-size:
+                clamp(2rem,4vw,3.2rem);
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .section-heading p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.98rem;
+        }
+
+
+
+        /* =========================================
+           WHATSAPP INTRO
+        ========================================= */
+
+        .whatsapp-intro {
+
+            max-width:
+                900px;
+
+            margin:
+                0 auto 55px;
+
+            padding:
+                25px 30px;
+
+            border:
+                1px solid
+                rgba(37,211,102,0.2);
+
+            background:
+                rgba(37,211,102,0.035);
+
+            border-radius:
+                16px;
+
+            text-align:
+                center;
+        }
+
+
+        .whatsapp-intro h3 {
+
+            color:
+                #ffffff;
+
+            margin-bottom:
+                8px;
+
+            font-size:
+                1.2rem;
+        }
+
+
+        .whatsapp-intro p {
+
+            color:
+                var(--muted);
+        }
+
+
+        .whatsapp-intro strong {
+
+            color:
+                var(--whatsapp);
+        }
+
+
+
+        /* =========================================
+           STACK GRID
+        ========================================= */
+
+        .stack-grid {
+
+            max-width:
+                1350px;
+
+            margin:
+                auto;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap:
+                25px;
+        }
+
+
+
+        /* =========================================
+           STACK CARD
+        ========================================= */
+
+        .stack-card {
+
+            position:
+                relative;
+
+            padding:
+                30px;
+
+            min-height:
+                290px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.035),
+                    rgba(255,255,255,0.01)
+                );
+
+            border:
+                1px solid
+                rgba(212,175,55,0.14);
+
+            border-radius:
+                18px;
+
+            overflow:
+                hidden;
+
+            transition:
+                0.4s ease;
+        }
+
+
+        .stack-card::before {
+
+            content: "";
+
+            position:
+                absolute;
+
+            top: 0;
+
+            left: -100%;
+
+            width: 100%;
+
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--gold),
+                    transparent
+                );
+
+            transition:
+                0.6s ease;
+        }
+
+
+        .stack-card:hover::before {
+
+            left:
+                100%;
+        }
+
+
+        .stack-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            border-color:
+                rgba(212,175,55,0.45);
+
+            box-shadow:
+                0 25px 60px
+                rgba(0,0,0,0.4);
+        }
+
+
+
+        /* =========================================
+           STACK NUMBER
+        ========================================= */
+
+        .stack-number {
+
+            color:
+                var(--gold);
+
+            font-size:
+                0.72rem;
+
+            letter-spacing:
+                2px;
+
+            margin-bottom:
+                15px;
+        }
+
+
+
+        /* =========================================
+           STACK ICON
+        ========================================= */
+
+        .stack-icon {
+
+            width:
+                65px;
+
+            height:
+                65px;
+
+            border-radius:
+                50%;
+
+            border:
+                1px solid
+                rgba(212,175,55,0.35);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            color:
+                var(--gold);
+
+            font-weight:
+                bold;
+
+            font-size:
+                0.85rem;
+
+            margin-bottom:
+                20px;
+
+            background:
+                rgba(212,175,55,0.04);
+        }
+
+
+
+        /* =========================================
+           STACK TEXT
+        ========================================= */
+
+        .stack-card h3 {
+
+            font-size:
+                1.45rem;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .stack-card p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.9rem;
+
+            margin-bottom:
+                20px;
+        }
+
+
+
+        /* =========================================
+           WHATSAPP BUTTON
+        ========================================= */
+
+        .whatsapp-button {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                8px;
+
+            width:
+                100%;
+
+            padding:
+                12px 18px;
+
+            border:
+                1px solid
+                rgba(37,211,102,0.35);
+
+            border-radius:
+                8px;
+
+            color:
+                #ffffff;
+
+            background:
+                rgba(37,211,102,0.06);
+
+            font-weight:
+                600;
+
+            font-size:
+                0.86rem;
+
+            transition:
+                0.3s ease;
+        }
+
+
+        .whatsapp-button:hover {
+
+            background:
+                var(--whatsapp);
+
+            color:
+                #041008;
+
+            border-color:
+                var(--whatsapp);
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(37,211,102,0.18);
+        }
+
+
+        .whatsapp-icon {
+
+            font-size:
+                1.05rem;
+        }
+
+
+
+        /* =========================================
+           DIRECT CONTACT
+        ========================================= */
+
+        .direct-contact {
+
+            max-width:
+                1000px;
+
+            margin:
+                80px auto 0;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                25px;
+        }
+
+
+        .contact-box {
+
+            padding:
+                35px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(255,255,255,0.025);
+
+            border:
+                1px solid
+                rgba(212,175,55,0.14);
+
+            border-radius:
+                18px;
+        }
+
+
+        .contact-box h3 {
+
+            color:
+                var(--gold);
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .contact-box p {
+
+            color:
+                var(--muted);
+
+            margin-bottom:
+                20px;
+        }
+
+
+        .main-whatsapp {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                10px;
+
+            padding:
+                14px 25px;
+
+            background:
+                var(--whatsapp);
+
+            color:
+                #041008;
+
+            border-radius:
+                8px;
+
+            font-weight:
+                bold;
+
+            transition:
+                0.3s ease;
+        }
+
+
+        .main-whatsapp:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(37,211,102,0.2);
+        }
+
+
+
+        /* =========================================
+           BOTTOM MESSAGE
+        ========================================= */
+
+        .bottom-message {
+
+            padding:
+                100px 6%;
+
+            text-align:
+                center;
+
+            background:
+                #03070c;
+        }
+
+
+        .bottom-message h2 {
+
+            font-size:
+                clamp(2rem,5vw,4rem);
+
+            margin-bottom:
+                18px;
+        }
+
+
+        .bottom-message h2 span {
+
+            color:
+                var(--gold);
+        }
+
+
+        .bottom-message p {
+
+            max-width:
+                650px;
+
+            margin:
+                auto;
+
+            color:
+                var(--muted);
+        }
+
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            padding:
+                30px 6%;
+
+            background:
+                #020509;
+
+            border-top:
+                1px solid
+                rgba(212,175,55,0.1);
+        }
+
+
+        .footer-content {
+
+            max-width:
+                1200px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+        }
+
+
+        footer p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.85rem;
+        }
+
+
+        footer span {
+
+            color:
+                var(--gold);
+        }
+
+
+
+        /* =========================================
+           REVEAL
+        ========================================= */
+
+        .reveal {
+
+            opacity:
+                0;
+
+            transform:
+                translateY(35px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+
+        .reveal.show {
+
+            opacity:
+                1;
+
+            transform:
+                translateY(0);
+        }
+
+
+
+        /* =========================================
+           ROTATE
+        ========================================= */
+
+        @keyframes rotate {
+
+            from {
+                transform:
+                    rotate(0deg);
+            }
+
+            to {
+                transform:
+                    rotate(360deg);
+            }
+        }
+
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .stack-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+        }
+
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 750px) {
+
+            .navbar {
+
+                width:
+                    90%;
+
+                min-height:
+                    70px;
+            }
+
+
+            .logo img {
+
+                width:
+                    42px;
+
+                height:
+                    42px;
+            }
+
+
+            .logo span {
+
+                font-size:
+                    0.82rem;
+            }
+
+
+            .menu-toggle {
+
+                display:
+                    flex;
+            }
+
+
+            .nav-links {
+
+                position:
+                    absolute;
+
+                top:
+                    70px;
+
+                left:
+                    0;
+
+                width:
+                    100%;
+
+                padding:
+                    15px 6% 25px;
+
+                background:
+                    rgba(3,7,12,0.98);
+
+                backdrop-filter:
+                    blur(20px);
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+
+                opacity:
+                    0;
+
+                visibility:
+                    hidden;
+
+                transform:
+                    translateY(-15px);
+
+                transition:
+                    0.3s ease;
+
+                border-bottom:
+                    1px solid
+                    rgba(212,175,55,0.15);
+            }
+
+
+            .nav-links.open {
+
+                opacity:
+                    1;
+
+                visibility:
+                    visible;
+
+                transform:
+                    translateY(0);
+            }
+
+
+            .nav-links a {
+
+                padding:
+                    15px 10px;
+
+                border-bottom:
+                    1px solid
+                    rgba(255,255,255,0.05);
+            }
+
+
+            .hero {
+
+                min-height:
+                    65vh;
+
+                padding:
+                    125px 6% 70px;
+            }
+
+
+            .contact-section {
+
+                padding:
+                    75px 5%;
+            }
+
+
+            .stack-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .direct-contact {
+
+                grid-template-columns:
+                    1fr;
+
+                margin-top:
+                    55px;
+            }
+
+
+            .footer-content {
+
+                flex-direction:
+                    column;
+
+                text-align:
+                    center;
+            }
+
+        }
+
+
+
+        /* =========================================
+           SMALL PHONES
+        ========================================= */
+
+        @media (max-width: 380px) {
+
+            .logo span {
+
+                font-size:
+                    0.7rem;
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    2.25rem;
+            }
+
+
+            .hero p {
+
+                font-size:
+                    0.9rem;
+            }
+
+
+            .stack-card {
+
+                padding:
+                    24px;
+            }
+
+
+            .stack-card h3 {
+
+                font-size:
+                    1.25rem;
+            }
+
+
+            .stack-card p {
+
+                font-size:
+                    0.84rem;
+            }
+
+
+            .contact-box {
+
+                padding:
+                    25px 18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================= -->
+
+    <header id="header">
+
+        <nav class="navbar">
+
+
+            <a href="home.html" class="logo">
+
+                <img
+                    src="/img/logo.jpeg"
+                    alt="Full Stack Development Logo"
+                >
+
+                <span>
+                    Goldenice International
+                </span>
+
+            </a>
+
+
+
+            <div class="nav-links" id="navLinks">
+
+                <a href="/home.html">
+                    Home
+                </a>
+
+                <a href="/abot.html">
+                    About
+                </a>
+
+                <a href="/gallary.html">
+                    Gallery
+                </a>
+
+                <a href="#" class="active">
+                    Contact
+                </a>
+
+            </div>
+
+
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                Direct Technology Consultation
+            </div>
+
+
+            <h1>
+
+                Let's Talk About
+                <span>Technology.</span>
+
+            </h1>
+
+
+            <p>
+
+                Choose the programming language, technology or
+                development area you want to discuss and connect
+                directly through WhatsApp.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         CONTACT SECTION
+    ========================================= -->
+
+    <section class="contact-section">
+
+
+        <div class="section-heading reveal">
+
+            <div class="label">
+                Choose Your Technology
+            </div>
+
+
+            <h2>
+                Talk Directly About What You Need
+            </h2>
+
+
+            <p>
+
+                No long forms. No unnecessary explanations.
+                Simply choose a technology below and start
+                the conversation directly on WhatsApp.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =====================================
+             WHATSAPP INTRO
+        ====================================== -->
+
+        <div class="whatsapp-intro reveal">
+
+            <h3>
+                Direct WhatsApp Communication
+            </h3>
+
+
+            <p>
+
+                Click any technology below and WhatsApp will
+                open with a prepared message about that specific
+                subject.
+
+                <br>
+
+                <strong>
+                    WhatsApp: +234 706 860 9938
+                </strong>
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =====================================
+             15 TECHNOLOGIES
+        ====================================== -->
+
+        <div class="stack-grid">
+
+
+
+            <!-- 01 HTML -->
+
+            <article class="stack-card reveal">
+
+                <div class="stack-number">
+                    01 / STACK
+                </div>
+
+                <div class="stack-icon">
+                    HTML
+                </div>
+
+                <h3>
+                    HTML
+                </h3>
+
+                <p>
+                    Website structure and modern web development.
+                </p>
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20talk%20about%20HTML%20and%20web%20development."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span class="whatsapp-icon">
+                        ☎
+                    </span>
+
+                    Talk About HTML
+
+                </a>
+
+            </article>
+
+
+
+            <!-- 02 CSS -->
+
+            <article class="stack-card reveal">
+
+                <div class="stack-number">
+                    02 / STACK
+                </div>
+
+                <div class="stack-icon">
+                    CSS
+                </div>
+
+                <h3>
+                    CSS
+                </h3>
+
+                <p>
+                    Website styling, layouts, animations and responsiveness.
+                </p>
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20talk%20about%20CSS%2C%20web%20design%20and%20responsive%20development."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span class="whatsapp-icon">
+                        ☎
+                    </span>
+
+                    Talk About CSS
+
+                </a>
+
+            </article>
+
+
+
+            <!-- 03 JAVASCRIPT -->
+
+            <article class="stack-card reveal">
+
+                <div class="stack-number">
+                    03 / STACK
+                </div>
+
+                <div class="stack-icon">
+                    JS
+                </div>
+
+                <h3>
+                    JavaScript
+                </h3>
+
+                <p>
+                    Interactive websites, applications and web functionality.
+                </p>
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20talk%20about%20JavaScript%20development."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span class="whatsapp-icon">
+                        ☎
+                    </span>
+
+                    Talk About JavaScript
+
+                </a>
+
+            </article>
+
+
+
+            <!-- 04 PYTHON -->
+
+            <article class="stack-card reveal">
+
+                <div class="stack-number">
+                    04 / STACK
+                </div>
+
+                <div class="stack-icon">
+                    PY
+                </div>
+
+                <h3>
+                    Python
+                </h3>
+
+                <p>
+                    Backend development, automation, AI and data applications.
+                </p>
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20talk%20about%20Python%20development."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span class="whatsapp-icon">
+                        ☎
+                    </span>
+
+                    Talk About Python
+
+                </a>
+
+            </article>
+
+
+
+            <!-- 05 JAVA -->
+
+            <article class="stack-card reveal">
+
+                <div class="stack-number">
+                    05 / STACK
+                </div>
+
+                <div class="stack-icon">
+                    JAVA
+                </div>
+
+                <h3>
+                    Java
+                </h3>
+
+                <p>
+                    Enterprise applications, backend systems and Android development.
+                </p>
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20talk%20about%20Java%20development."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span class="whatsapp-icon">
+                        ☎
+                    </span>
+
+                    Talk About Java
+
+                </a>
+
+            </article>
+
+
+
+            <!-- 06 C -->
+
+            <article class="stack-card reveal">
+
+                <div class="stack-number">
+                    06 / STACK
+                </div>
+
+                <div class="stack-icon">
+                    C
+                </div>
+
+                <h3>
+                    C
+                </h3>
+
+                <p>
+                    Systems programming, embedded software and performance-focused development.
+                </p>
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20talk%20about%20C%20programming."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span class="whatsapp-icon">
+                        ☎
+                    </span>
+
+                    Talk About C
+
+                </a>
+
+            </article>
+
+
+
+            <!-- 07 C++ -->
+
+            <article class="stack-card reveal">
+
+                <div class="stack-number">
+                    07 / STACK
+                </div>
+
+                <div class="stack-icon">
+                    C++
+                </div>
+
+                <h3>
+                    C++
+                </h3>
+
+                <p>
+                    Games, high-performance applications and systems software.
+                </p>
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20talk%20about%20C%2B%2B%20development."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span class="whatsapp-icon">
+                        ☎
+                    </span>
+
+                    Talk About C++
+
+                </a>
+
+            </article>
+
+
+
+            <!-- 08 C# -->
+
+            <article class="stack-card reveal">
+
+                <div class="stack-number">
+                    08 / STACK
+                </div>
+
+                <div class="stack-icon">
+                    C#
+                </div>
+
+                <h3>
+                    C#
+                </h3>
+
+                <p>
+                    .NET applications, APIs, desktop software and game development.
+                </p>
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20talk%20about%20C%23%20and%20.NET%20development."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span class="whatsapp-icon">
+                        ☎
+                    </span>
+
+                    Talk About C#
+
+                </a>
+
+            </article>
+
+
+
+            <!-- 09 PHP -->
+
+            <article class="stack-card reveal">
+
+                <div class="stack-number">
+                    09 / STACK
+                </div>
+
+                <div class="stack-icon">
+                    PHP
+                </div>
+
+                <h3>
+                    PHP
+                </h3>
+
+                <p>
+                    Server-side websites, web applications and backend development.
+                </p>
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20talk%20about%20PHP%20web%20development."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span class="whatsapp-icon">
+                        ☎
+                    </span>
+
+                    Talk About PHP
+
+                </a>
+
+            </article>
+
+
+
+            <!-- 10 TYPESCRIPT -->
+
+            <article class="stack-card reveal">
+
+                <div class="stack-number">
+                    10 / STACK
+                </div>
+
+                <div class="stack-icon">
+                    TS
+                </div>
+
+                <h3>
+                    TypeScript
+                </h3>
+
+                <p>
+                    Scalable and maintainable JavaScript applications.
+                </p>
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20talk%20about%20TypeScript%20development."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span class="whatsapp-icon">
+                        ☎
+                    </span>
+
+                    Talk About TypeScript
+
+                </a>
+
+            </article>
+
+
+
+            <!-- 11 GO -->
+
+            <article class="stack-card reveal">
+
+                <div class="stack-number">
+                    11 / STACK
+                </div>
+
+                <div class="stack-icon">
+                    GO
+                </div>
+
+                <h3>
+                    Go
+                </h3>
+
+                <p>
+                    Cloud services, backend systems and high-performance APIs.
+                </p>
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20talk%20about%20Go%20Golang%20development."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span class="whatsapp-icon">
+                        ☎
+                    </span>
+
+                    Talk About Go
+
+                </a>
+
+            </article>
+
+
+
+            <!-- 12 RUST -->
+
+            <article class="stack-card reveal">
+
+                <div class="stack-number">
+                    12 / STACK
+                </div>
+
+                <div class="stack-icon">
+                    RS
+                </div>
+
+                <h3>
+                    Rust
+                </h3>
+
+                <p>
+                    Secure, fast and memory-efficient systems development.
+                </p>
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20talk%20about%20Rust%20development."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span class="whatsapp-icon">
+                        ☎
+                    </span>
+
+                    Talk About Rust
+
+                </a>
+
+            </article>
+
+
+
+            <!-- 13 SWIFT -->
+
+            <article class="stack-card reveal">
+
+                <div class="stack-number">
+                    13 / STACK
+                </div>
+
+                <div class="stack-icon">
+                    SW
+                </div>
+
+                <h3>
+                    Swift
+                </h3>
+
+                <p>
+                    iPhone, iPad, Mac and other Apple application development.
+                </p>
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20talk%20about%20Swift%20and%20Apple%20app%20development."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span class="whatsapp-icon">
+                        ☎
+                    </span>
+
+                    Talk About Swift
+
+                </a>
+
+            </article>
+
+
+
+            <!-- 14 KOTLIN -->
+
+            <article class="stack-card reveal">
+
+                <div class="stack-number">
+                    14 / STACK
+                </div>
+
+                <div class="stack-icon">
+                    KT
+                </div>
+
+                <h3>
+                    Kotlin
+                </h3>
+
+                <p>
+                    Modern Android applications and JVM-based development.
+                </p>
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20talk%20about%20Kotlin%20and%20Android%20development."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span class="whatsapp-icon">
+                        ☎
+                    </span>
+
+                    Talk About Kotlin
+
+                </a>
+
+            </article>
+
+
+
+            <!-- 15 SQL -->
+
+            <article class="stack-card reveal">
+
+                <div class="stack-number">
+                    15 / STACK
+                </div>
+
+                <div class="stack-icon">
+                    SQL
+                </div>
+
+                <h3>
+                    SQL
+                </h3>
+
+                <p>
+                    Relational databases, data storage and database management.
+                </p>
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20talk%20about%20SQL%20and%20database%20development."
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span class="whatsapp-icon">
+                        ☎
+                    </span>
+
+                    Talk About SQL
+
+                </a>
+
+            </article>
+
+
+        </div>
+
+
+
+        <!-- =====================================
+             DIRECT CONTACT
+        ====================================== -->
+
+        <div class="direct-contact">
+
+
+            <div class="contact-box reveal">
+
+                <h3>
+                    General Development
+                </h3>
+
+                <p>
+
+                    Have a project but don't know which
+                    technology to use? Start a direct conversation.
+
+                </p>
+
+                <a
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20software%20development%20project."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="main-whatsapp">
+
+                    WhatsApp Us
+
+                </a>
+
+            </div>
+
+
+
+            <div class="contact-box reveal">
+
+                <h3>
+                    Full-Stack Development
+                </h3>
+
+                <p>
+
+                    Talk about building a complete website,
+                    web application, API or software platform.
+
+                </p>
+
+                <a
+                    href="https://wa.me/2347068609938?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20full-stack%20development%20project."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="main-whatsapp">
+
+                    Start Conversation
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FINAL MESSAGE
+    ========================================= -->
+
+    <section class="bottom-message">
+
+        <div class="reveal">
+
+            <div class="small-title">
+                Direct. Simple. Professional.
+            </div>
+
+
+            <h2>
+
+                Don't Just Have An
+                <span>Idea.</span>
+
+            </h2>
+
+
+            <p>
+
+                Let's turn your idea into something people can
+                actually use. Choose a technology above and
+                start the conversation directly.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <p>
+
+                ©
+                <span id="year"></span>
+
+                Full Stack Development.
+
+                All Rights Reserved.
+
+            </p>
+
+
+            <p>
+                Code • Design • Build • Innovate
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+
+        /* =========================================
+           MOBILE MENU
+        ========================================= */
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+                menuToggle.classList.toggle(
+                    "active"
+                );
+
+                navLinks.classList.toggle(
+                    "open"
+                );
+
+            }
+        );
+
+
+        /* Close menu after clicking link */
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        menuToggle.classList.remove(
+                            "active"
+                        );
+
+                        navLinks.classList.remove(
+                            "open"
+                        );
+
+                    }
+                );
+
+            });
+
+
+
+        /* =========================================
+           HEADER SCROLL
+        ========================================= */
+
+        const header =
+            document.getElementById("header");
+
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                if (window.scrollY > 50) {
+
+                    header.classList.add(
+                        "scrolled"
+                    );
+
+                } else {
+
+                    header.classList.remove(
+                        "scrolled"
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* =========================================
+           REVEAL ANIMATION
+        ========================================= */
+
+        const revealElements =
+            document.querySelectorAll(
+                ".reveal"
+            );
+
+
+        const observer =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach(entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.classList.add(
+                                "show"
+                            );
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+
+
+        /* =========================================
+           CURRENT YEAR
+        ========================================= */
+
+        document.getElementById("year")
+            .textContent =
+            new Date().getFullYear();
+
+
+
+        /* =========================================
+           ESCAPE KEY
+        ========================================= */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    menuToggle.classList.remove(
+                        "active"
+                    );
+
+                    navLinks.classList.remove(
+                        "open"
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

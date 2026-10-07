@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta name="description"
+          content="Learn about programming languages, technologies and tools used in modern full-stack development.">
+
+    <meta name="theme-color" content="#03070c">
+
+    <title>About | Full Stack Development</title>
+
+    <style>
+        /* ================================
+           RESET
+        ================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #03070c;
+            color: #ffffff;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* ================================
+           VARIABLES
+        ================================= */
+        :root {
+            --gold: #d4af37;
+            --light-gold: #f1d477;
+            --dark: #03070c;
+            --dark-card: #07111c;
+            --blue: #00aaff;
+            --text: #d7dde5;
+            --muted: #8d99a8;
+            --border: rgba(212, 175, 55, 0.18);
+        }
+
+        /* ================================
+           HEADER
+        ================================= */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(3, 7, 12, 0.88);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            transition: 0.4s ease;
+        }
+
+        header.scrolled {
+            background: rgba(2, 5, 9, 0.97);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .navbar {
+            width: 92%;
+            max-width: 1400px;
+            margin: auto;
+            min-height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        /* ================================
+           LOGO
+        ================================= */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.3);
+        }
+
+        .logo span {
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--light-gold);
+        }
+
+        /* ================================
+           NAVIGATION
+        ================================= */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            position: relative;
+            padding: 10px 16px;
+            color: #dce2e8;
+            font-size: 0.95rem;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transform: translateX(-50%);
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--light-gold);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 55%;
+        }
+
+        /* ================================
+           HAMBURGER
+        ================================= */
+        .menu-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            cursor: pointer;
+
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 23px;
+            height: 2px;
+            background: var(--gold);
+            transition: 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ================================
+           HERO
+        ================================= */
+        .hero {
+            min-height: 72vh;
+            padding: 150px 6% 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 20% 30%,
+                    rgba(0, 170, 255, 0.09),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 80% 60%,
+                    rgba(212, 175, 55, 0.1),
+                    transparent 35%
+                ),
+                #03070c;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            animation: rotateCircle 25s linear infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .small-title {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: auto;
+            color: var(--text);
+            font-size: 1.05rem;
+        }
+
+        /* ================================
+           GENERAL SECTIONS
+        ================================= */
+        section {
+            padding: 100px 6%;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 55px;
+        }
+
+        .section-heading .label {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.78rem;
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 3.3rem);
+            margin-bottom: 15px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        /* ================================
+           ABOUT INTRO
+        ================================= */
+        .about-intro {
+            background: #050b12;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text h2 span {
+            color: var(--gold);
+        }
+
+        .about-text p {
+            color: var(--text);
+            margin-bottom: 18px;
+        }
+
+        .about-image {
+            min-height: 400px;
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(212,175,55,0.08),
+                    rgba(0,170,255,0.04)
+                );
+        }
+
+        .code-symbol {
+            font-size: clamp(7rem, 15vw, 12rem);
+            color: var(--gold);
+            text-shadow:
+                0 0 30px rgba(212,175,55,0.3);
+            font-weight: bold;
+        }
+
+        /* ================================
+           LANGUAGE SECTION
+        ================================= */
+        .languages {
+            background: #03070c;
+        }
+
+        .language-grid {
+            max-width: 1350px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .language-card {
+            position: relative;
+            padding: 30px;
+            min-height: 250px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.035),
+                    rgba(255,255,255,0.01)
+                );
+
+            border: 1px solid rgba(212,175,55,0.14);
+            border-radius: 18px;
+
+            transition: 0.4s ease;
+            overflow: hidden;
+        }
+
+        .language-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                var(--gold),
+                transparent
+            );
+            transition: 0.6s ease;
+        }
+
+        .language-card:hover::before {
+            left: 100%;
+        }
+
+        .language-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212,175,55,0.5);
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.35),
+                0 0 25px rgba(212,175,55,0.06);
+        }
+
+        .number {
+            font-size: 0.75rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .language-card h3 {
+            font-size: 1.45rem;
+            margin-bottom: 12px;
+        }
+
+        .language-card p {
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .language-tag {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(212,175,55,0.25);
+            color: var(--light-gold);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ================================
+           FULL STACK
+        ================================= */
+        .full-stack {
+            background: #050b12;
+        }
+
+        .stack-grid {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stack-box {
+            padding: 30px 20px;
+            text-align: center;
+
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+
+            transition: 0.3s ease;
+        }
+
+        .stack-box:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212,175,55,0.4);
+        }
+
+        .stack-icon {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+            border: 1px solid rgba(212,175,55,0.35);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .stack-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .stack-box p {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        /* ================================
+           MISSION
+        ================================= */
+        .mission {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .mission h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 25px;
+        }
+
+        .mission h2 span {
+            color: var(--gold);
+        }
+
+        .mission p {
+            color: var(--text);
+            font-size: 1.05rem;
+        }
+
+        /* ================================
+           CTA
+        ================================= */
+        .cta {
+            padding: 100px 6%;
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(212,175,55,0.1),
+                    transparent 50%
+                ),
+                #03070c;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            color: var(--muted);
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 8px;
+
+            background: var(--gold);
+            color: #080808;
+
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--light-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(212,175,55,0.2);
+        }
+
+        /* ================================
+           FOOTER
+        ================================= */
+        footer {
+            padding: 30px 6%;
+            border-top: 1px solid rgba(212,175,55,0.1);
+            background: #020509;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        footer span {
+            color: var(--gold);
+        }
+
+        /* ================================
+           REVEAL ANIMATION
+        ================================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s ease,
+                        transform 0.8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ================================
+           ANIMATIONS
+        ================================= */
+        @keyframes rotateCircle {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ================================
+           TABLET
+        ================================= */
+        @media (max-width: 1000px) {
+
+            .language-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stack-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 320px;
+            }
+        }
+
+        /* ================================
+           MOBILE
+        ================================= */
+        @media (max-width: 750px) {
+
+            .navbar {
+                min-height: 70px;
+                width: 90%;
+            }
+
+            .logo img {
+                width: 42px;
+                height: 42px;
+            }
+
+            .logo span {
+                font-size: 0.85rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+
+                width: 100%;
+
+                background: rgba(3,7,12,0.98);
+                backdrop-filter: blur(20px);
+
+                flex-direction: column;
+                align-items: stretch;
+
+                padding: 15px 6% 25px;
+
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-15px);
+
+                transition: 0.3s ease;
+                border-bottom: 1px solid rgba(212,175,55,0.15);
+            }
+
+            .nav-links.open {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .nav-links a {
+                padding: 15px 10px;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+            }
+
+            .hero {
+                min-height: 75vh;
+                padding: 130px 6% 70px;
+            }
+
+            section {
+                padding: 75px 5%;
+            }
+
+            .language-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stack-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-text h2 {
+                font-size: 2rem;
+            }
+
+            .about-image {
+                min-height: 250px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* ================================
+           SMALL PHONES
+        ================================= */
+        @media (max-width: 380px) {
+
+            .logo span {
+                font-size: 0.72rem;
+            }
+
+            .logo img {
+                width: 38px;
+                height: 38px;
+            }
+
+            .hero {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .language-card {
+                padding: 23px;
+            }
+
+            .language-card h3 {
+                font-size: 1.25rem;
+            }
+
+            .language-card p {
+                font-size: 0.87rem;
+            }
+
+            .code-symbol {
+                font-size: 7rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================================
+         HEADER
+    ================================= -->
+    <header id="header">
+
+        <nav class="navbar">
+
+            <a href="home.html" class="logo">
+                <img src="/img/logo.jpeg" alt="Development Logo">
+                <span>Goldenice International</span>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+
+                <a href="home.html">Home</a>
+
+                <a href="#" class="active">
+                    About
+                </a>
+
+                <a href="/gallary.html">
+                    Gallery
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================================
+         HERO
+    ================================= -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                About Full Stack Development
+            </div>
+
+            <h1>
+                The Technology Behind
+                <span>Modern Applications.</span>
+            </h1>
+
+            <p>
+                Full-stack development combines different programming
+                languages, frameworks, databases and technologies to
+                transform ideas into powerful digital experiences.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         ABOUT INTRO
+    ================================= -->
+    <section class="about-intro">
+
+        <div class="about-container">
+
+            <div class="about-text reveal">
+
+                <div class="small-title">
+                    What We Do
+                </div>
+
+                <h2>
+                    From <span>Ideas</span> to Digital Products
+                </h2>
+
+                <p>
+                    Software development is more than writing lines of
+                    code. It is the process of taking an idea, understanding
+                    a problem and transforming that idea into a useful
+                    digital product.
+                </p>
+
+                <p>
+                    Full-stack development allows developers to work across
+                    the different layers of an application — from the
+                    interface users see to the server, database and systems
+                    that power the application behind the scenes.
+                </p>
+
+                <p>
+                    There are many programming languages available today.
+                    Each language has its own strengths, use cases and
+                    communities. Learning several of them gives developers
+                    the ability to choose the right technology for the
+                    right project.
+                </p>
+
+            </div>
+
+            <div class="about-image reveal">
+
+                <div class="code-symbol">
+                    &lt;/&gt;
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         15 LANGUAGES
+    ================================= -->
+    <section class="languages">
+
+        <div class="section-heading reveal">
+
+            <div class="label">
+                Programming Languages
+            </div>
+
+            <h2>
+                15 Technologies Every Developer Should Know
+            </h2>
+
+            <p>
+                Here is a quick introduction to fifteen important
+                programming languages and technologies used across
+                modern software development.
+            </p>
+
+        </div>
+
+
+        <div class="language-grid">
+
+
+            <!-- 01 -->
+            <article class="language-card reveal">
+
+                <div class="number">01 / LANGUAGE</div>
+
+                <h3>HTML</h3>
+
+                <p>
+                    HTML stands for HyperText Markup Language. It provides
+                    the structure of websites by defining elements such as
+                    headings, paragraphs, images, forms, links and sections.
+                </p>
+
+                <span class="language-tag">
+                    Web Structure
+                </span>
+
+            </article>
+
+
+            <!-- 02 -->
+            <article class="language-card reveal">
+
+                <div class="number">02 / LANGUAGE</div>
+
+                <h3>CSS</h3>
+
+                <p>
+                    CSS, or Cascading Style Sheets, controls how websites
+                    look. It is used for colors, layouts, animations,
+                    spacing, typography and responsive designs.
+                </p>
+
+                <span class="language-tag">
+                    Web Design
+                </span>
+
+            </article>
+
+
+            <!-- 03 -->
+            <article class="language-card reveal">
+
+                <div class="number">03 / LANGUAGE</div>
+
+                <h3>JavaScript</h3>
+
+                <p>
+                    JavaScript brings websites to life. It allows developers
+                    to create interactive interfaces, dynamic content,
+                    animations, forms and powerful web applications.
+                </p>
+
+                <span class="language-tag">
+                    Interactivity
+                </span>
+
+            </article>
+
+
+            <!-- 04 -->
+            <article class="language-card reveal">
+
+                <div class="number">04 / LANGUAGE</div>
+
+                <h3>Python</h3>
+
+                <p>
+                    Python is a popular, readable and versatile programming
+                    language used for web development, automation, data
+                    analysis, artificial intelligence and machine learning.
+                </p>
+
+                <span class="language-tag">
+                    General Purpose
+                </span>
+
+            </article>
+
+
+            <!-- 05 -->
+            <article class="language-card reveal">
+
+                <div class="number">05 / LANGUAGE</div>
+
+                <h3>Java</h3>
+
+                <p>
+                    Java is a powerful object-oriented language widely used
+                    for enterprise software, backend systems, Android
+                    applications and large-scale business applications.
+                </p>
+
+                <span class="language-tag">
+                    Enterprise
+                </span>
+
+            </article>
+
+
+            <!-- 06 -->
+            <article class="language-card reveal">
+
+                <div class="number">06 / LANGUAGE</div>
+
+                <h3>C</h3>
+
+                <p>
+                    C is a foundational programming language known for its
+                    speed and low-level control. It is commonly used for
+                    operating systems, embedded systems and performance-
+                    critical software.
+                </p>
+
+                <span class="language-tag">
+                    Systems
+                </span>
+
+            </article>
+
+
+            <!-- 07 -->
+            <article class="language-card reveal">
+
+                <div class="number">07 / LANGUAGE</div>
+
+                <h3>C++</h3>
+
+                <p>
+                    C++ extends the capabilities of C with powerful
+                    object-oriented features. It is used in games,
+                    desktop software, operating systems and high-performance
+                    applications.
+                </p>
+
+                <span class="language-tag">
+                    High Performance
+                </span>
+
+            </article>
+
+
+            <!-- 08 -->
+            <article class="language-card reveal">
+
+                <div class="number">08 / LANGUAGE</div>
+
+                <h3>C#</h3>
+
+                <p>
+                    C# is a Microsoft programming language commonly used
+                    with the .NET platform. Developers use it for web apps,
+                    desktop software, APIs and game development with Unity.
+                </p>
+
+                <span class="language-tag">
+                    .NET
+                </span>
+
+            </article>
+
+
+            <!-- 09 -->
+            <article class="language-card reveal">
+
+                <div class="number">09 / LANGUAGE</div>
+
+                <h3>PHP</h3>
+
+                <p>
+                    PHP is a server-side scripting language that has powered
+                    millions of websites. It remains widely used for dynamic
+                    websites, backend systems and platforms such as WordPress.
+                </p>
+
+                <span class="language-tag">
+                    Backend
+                </span>
+
+            </article>
+
+
+            <!-- 10 -->
+            <article class="language-card reveal">
+
+                <div class="number">10 / LANGUAGE</div>
+
+                <h3>TypeScript</h3>
+
+                <p>
+                    TypeScript builds on JavaScript by adding static typing.
+                    It helps developers write more maintainable and reliable
+                    code, especially when building large applications.
+                </p>
+
+                <span class="language-tag">
+                    JavaScript Ecosystem
+                </span>
+
+            </article>
+
+
+            <!-- 11 -->
+            <article class="language-card reveal">
+
+                <div class="number">11 / LANGUAGE</div>
+
+                <h3>Go</h3>
+
+                <p>
+                    Go, also called Golang, was created at Google. It is
+                    designed for simplicity, speed and concurrency and is
+                    widely used for cloud services, APIs and backend systems.
+                </p>
+
+                <span class="language-tag">
+                    Cloud & Backend
+                </span>
+
+            </article>
+
+
+            <!-- 12 -->
+            <article class="language-card reveal">
+
+                <div class="number">12 / LANGUAGE</div>
+
+                <h3>Rust</h3>
+
+                <p>
+                    Rust is a modern systems programming language focused
+                    on performance and memory safety. It is useful for
+                    systems software, backend services and high-performance
+                    applications.
+                </p>
+
+                <span class="language-tag">
+                    Systems
+                </span>
+
+            </article>
+
+
+            <!-- 13 -->
+            <article class="language-card reveal">
+
+                <div class="number">13 / LANGUAGE</div>
+
+                <h3>Swift</h3>
+
+                <p>
+                    Swift is Apple's programming language for creating
+                    applications across platforms such as iPhone, iPad,
+                    Mac, Apple Watch and Apple TV.
+                </p>
+
+                <span class="language-tag">
+                    Apple Development
+                </span>
+
+            </article>
+
+
+            <!-- 14 -->
+            <article class="language-card reveal">
+
+                <div class="number">14 / LANGUAGE</div>
+
+                <h3>Kotlin</h3>
+
+                <p>
+                    Kotlin is a modern programming language widely used
+                    for Android development. It is concise, expressive and
+                    works closely with the Java ecosystem.
+                </p>
+
+                <span class="language-tag">
+                    Android
+                </span>
+
+            </article>
+
+
+            <!-- 15 -->
+            <article class="language-card reveal">
+
+                <div class="number">15 / LANGUAGE</div>
+
+                <h3>SQL</h3>
+
+                <p>
+                    SQL stands for Structured Query Language. It is used
+                    to communicate with relational databases, allowing
+                    developers to store, retrieve, update and organize data.
+                </p>
+
+                <span class="language-tag">
+                    Databases
+                </span>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         FULL STACK
+    ================================= -->
+    <section class="full-stack">
+
+        <div class="section-heading reveal">
+
+            <div class="label">
+                Full Stack
+            </div>
+
+            <h2>
+                More Than Just Programming
+            </h2>
+
+            <p>
+                A full-stack developer understands how the different parts
+                of a digital product work together.
+            </p>
+
+        </div>
+
+
+        <div class="stack-grid">
+
+            <div class="stack-box reveal">
+
+                <div class="stack-icon">
+                    &lt;/&gt;
+                </div>
+
+                <h3>Frontend</h3>
+
+                <p>
+                    Everything users see and interact with on a website
+                    or application.
+                </p>
+
+            </div>
+
+
+            <div class="stack-box reveal">
+
+                <div class="stack-icon">
+                    { }
+                </div>
+
+                <h3>Backend</h3>
+
+                <p>
+                    The server-side logic that processes requests and
+                    powers application functionality.
+                </p>
+
+            </div>
+
+
+            <div class="stack-box reveal">
+
+                <div class="stack-icon">
+                    DB
+                </div>
+
+                <h3>Database</h3>
+
+                <p>
+                    Systems used to store, organize and retrieve
+                    application information.
+                </p>
+
+            </div>
+
+
+            <div class="stack-box reveal">
+
+                <div class="stack-icon">
+                    ☁
+                </div>
+
+                <h3>Deployment</h3>
+
+                <p>
+                    Making applications available online through servers,
+                    hosting platforms and cloud technologies.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         MISSION
+    ================================= -->
+    <section>
+
+        <div class="mission reveal">
+
+            <div class="small-title">
+                Our Approach
+            </div>
+
+            <h2>
+                Learn. <span>Build.</span> Innovate.
+            </h2>
+
+            <p>
+                Technology continues to evolve, and developers must continue
+                learning. The goal is not simply to memorize programming
+                languages, but to understand how technology can be used to
+                solve real-world problems. Whether building a website,
+                mobile application, business platform, API, database system
+                or intelligent application, strong programming fundamentals
+                provide the foundation for creating something meaningful.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         CTA
+    ================================= -->
+    <section class="cta">
+
+        <div class="reveal">
+
+            <div class="small-title">
+                Start Your Journey
+            </div>
+
+            <h2>
+                Your Next Project
+                <span style="color:#d4af37;">Starts With Code.</span>
+            </h2>
+
+            <p>
+                Explore our gallery to see development projects,
+                technologies and digital experiences brought to life.
+            </p>
+
+            <a href="/gallary.html" class="cta-button">
+                Explore Gallery
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+    <footer>
+
+        <div class="footer-content">
+
+            <p>
+                © <span id="year"></span>
+                Full Stack Development.
+                All Rights Reserved.
+            </p>
+
+            <p>
+                Code • Build • Create
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+    <script>
+
+        /* ================================
+           MOBILE MENU
+        ================================= */
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        menuToggle.addEventListener("click", function () {
+
+            menuToggle.classList.toggle("active");
+
+            navLinks.classList.toggle("open");
+
+        });
+
+
+        /* Close menu when link is clicked */
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    menuToggle.classList.remove("active");
+
+                    navLinks.classList.remove("open");
+
+                });
+
+            });
+
+
+        /* ================================
+           HEADER SCROLL EFFECT
+        ================================= */
+
+        const header =
+            document.getElementById("header");
+
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 50) {
+
+                header.classList.add("scrolled");
+
+            } else {
+
+                header.classList.remove("scrolled");
+
+            }
+
+        });
+
+
+        /* ================================
+           REVEAL ANIMATION
+        ================================= */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        const revealObserver =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(element => {
+
+            revealObserver.observe(element);
+
+        });
+
+
+        /* ================================
+           CURRENT YEAR
+        ================================= */
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+
+        /* ================================
+           CLOSE MENU ON ESCAPE
+        ================================= */
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+
+                menuToggle.classList.remove("active");
+
+                navLinks.classList.remove("open");
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

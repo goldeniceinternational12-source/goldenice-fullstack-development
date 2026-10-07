@@ -1,0 +1,3391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta name="description"
+          content="Explore our programming gallery featuring programming languages, code designs, websites, applications, databases and full-stack development.">
+
+    <meta name="theme-color" content="#03070c">
+
+    <title>Gallery | Full Stack Development</title>
+
+
+    <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #03070c;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================================
+           VARIABLES
+        ========================================= */
+
+        :root {
+
+            --gold: #d4af37;
+            --light-gold: #f1d477;
+
+            --dark: #03070c;
+            --dark-two: #050b12;
+            --card: #07111c;
+
+            --blue: #00aaff;
+
+            --text: #dce2e8;
+            --muted: #8c98a7;
+
+            --border: rgba(212,175,55,0.18);
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
+            background:
+                rgba(3,7,12,0.88);
+
+            backdrop-filter: blur(18px);
+
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(212,175,55,0.15);
+
+            transition: 0.4s ease;
+        }
+
+
+        header.scrolled {
+
+            background:
+                rgba(2,5,9,0.98);
+
+            box-shadow:
+                0 10px 40px rgba(0,0,0,0.5);
+        }
+
+
+        .navbar {
+
+            width: 92%;
+
+            max-width: 1400px;
+
+            margin: auto;
+
+            min-height: 80px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            flex-shrink: 0;
+        }
+
+
+        .logo img {
+
+            width: 48px;
+
+            height: 48px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border:
+                2px solid var(--gold);
+
+            box-shadow:
+                0 0 20px rgba(212,175,55,0.25);
+        }
+
+
+        .logo span {
+
+            color: var(--light-gold);
+
+            font-size: 1rem;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+
+        .nav-links a {
+
+            position: relative;
+
+            padding: 10px 16px;
+
+            color: #dce2e8;
+
+            font-size: 0.95rem;
+
+            transition: 0.3s ease;
+        }
+
+
+        .nav-links a::after {
+
+            content: "";
+
+            position: absolute;
+
+            bottom: 2px;
+
+            left: 50%;
+
+            width: 0;
+
+            height: 2px;
+
+            background:
+                var(--gold);
+
+            transform:
+                translateX(-50%);
+
+            transition: 0.3s ease;
+        }
+
+
+        .nav-links a:hover,
+        .nav-links a.active {
+
+            color:
+                var(--light-gold);
+        }
+
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+
+            width: 55%;
+        }
+
+
+        /* =========================================
+           MOBILE MENU
+        ========================================= */
+
+        .menu-toggle {
+
+            display: none;
+
+            width: 42px;
+
+            height: 42px;
+
+            border:
+                1px solid rgba(212,175,55,0.4);
+
+            border-radius: 8px;
+
+            background:
+                rgba(255,255,255,0.03);
+
+            cursor: pointer;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 5px;
+        }
+
+
+        .menu-toggle span {
+
+            width: 23px;
+
+            height: 2px;
+
+            background:
+                var(--gold);
+
+            transition: 0.3s ease;
+        }
+
+
+        .menu-toggle.active span:nth-child(1) {
+
+            transform:
+                translateY(7px) rotate(45deg);
+        }
+
+
+        .menu-toggle.active span:nth-child(2) {
+
+            opacity: 0;
+        }
+
+
+        .menu-toggle.active span:nth-child(3) {
+
+            transform:
+                translateY(-7px) rotate(-45deg);
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+
+            min-height: 72vh;
+
+            padding:
+                150px 6% 80px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 20% 30%,
+                    rgba(0,170,255,0.10),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 80% 60%,
+                    rgba(212,175,55,0.10),
+                    transparent 35%
+                ),
+
+                #03070c;
+        }
+
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+
+            height: 500px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(212,175,55,0.08);
+
+            animation:
+                rotate 25s linear infinite;
+        }
+
+
+        .hero-content {
+
+            max-width: 900px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .small-title {
+
+            color:
+                var(--gold);
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                4px;
+
+            font-size:
+                0.78rem;
+
+            margin-bottom:
+                18px;
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(2.5rem,7vw,5.5rem);
+
+            line-height:
+                1.05;
+
+            margin-bottom:
+                25px;
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--gold);
+        }
+
+
+        .hero p {
+
+            max-width:
+                750px;
+
+            margin:
+                auto;
+
+            color:
+                var(--text);
+
+            font-size:
+                1.05rem;
+        }
+
+
+        /* =========================================
+           SECTION
+        ========================================= */
+
+        section {
+
+            padding:
+                100px 6%;
+        }
+
+
+        .section-heading {
+
+            text-align:
+                center;
+
+            max-width:
+                800px;
+
+            margin:
+                0 auto 55px;
+        }
+
+
+        .section-heading .label {
+
+            color:
+                var(--gold);
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                3px;
+
+            font-size:
+                0.78rem;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .section-heading h2 {
+
+            font-size:
+                clamp(2rem,4vw,3.2rem);
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .section-heading p {
+
+            color:
+                var(--muted);
+        }
+
+
+        /* =========================================
+           FILTER BUTTONS
+        ========================================= */
+
+        .filter-container {
+
+            max-width:
+                1100px;
+
+            margin:
+                0 auto 45px;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                10px;
+        }
+
+
+        .filter-btn {
+
+            padding:
+                10px 20px;
+
+            border:
+                1px solid
+                rgba(212,175,55,0.25);
+
+            background:
+                rgba(255,255,255,0.025);
+
+            color:
+                var(--text);
+
+            border-radius:
+                30px;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.3s ease;
+        }
+
+
+        .filter-btn:hover,
+        .filter-btn.active {
+
+            background:
+                var(--gold);
+
+            color:
+                #050505;
+
+            border-color:
+                var(--gold);
+        }
+
+
+        /* =========================================
+           GALLERY GRID
+        ========================================= */
+
+        .gallery-grid {
+
+            max-width:
+                1400px;
+
+            margin:
+                auto;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap:
+                25px;
+        }
+
+
+        /* =========================================
+           GALLERY CARD
+        ========================================= */
+
+        .gallery-card {
+
+            position:
+                relative;
+
+            min-height:
+                330px;
+
+            overflow:
+                hidden;
+
+            border-radius:
+                18px;
+
+            background:
+                #07111c;
+
+            border:
+                1px solid
+                rgba(212,175,55,0.15);
+
+            transition:
+                0.4s ease;
+        }
+
+
+        .gallery-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            border-color:
+                rgba(212,175,55,0.5);
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,0.45);
+        }
+
+
+        /* =========================================
+           IMAGE
+        ========================================= */
+
+        .gallery-image {
+
+            width:
+                100%;
+
+            height:
+                230px;
+
+            overflow:
+                hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #08131e,
+                    #03070c
+                );
+        }
+
+
+        .gallery-image img {
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            object-fit:
+                cover;
+
+            transition:
+                0.6s ease;
+        }
+
+
+        .gallery-card:hover
+        .gallery-image img {
+
+            transform:
+                scale(1.08);
+        }
+
+
+        /* =========================================
+           CODE VISUAL
+        ========================================= */
+
+        .code-display {
+
+            width:
+                100%;
+
+            height:
+                230px;
+
+            padding:
+                25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #07121d,
+                    #03070c
+                );
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            overflow:
+                hidden;
+        }
+
+
+        .code-top {
+
+            display:
+                flex;
+
+            gap:
+                7px;
+
+            margin-bottom:
+                18px;
+        }
+
+
+        .dot {
+
+            width:
+                9px;
+
+            height:
+                9px;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--gold);
+        }
+
+
+        .code-line {
+
+            color:
+                #8ea2b7;
+
+            font-size:
+                0.82rem;
+
+            margin:
+                5px 0;
+
+            white-space:
+                nowrap;
+        }
+
+
+        .code-key {
+
+            color:
+                #d4af37;
+        }
+
+
+        .code-blue {
+
+            color:
+                #00aaff;
+        }
+
+
+        .code-green {
+
+            color:
+                #63d297;
+        }
+
+
+        .code-purple {
+
+            color:
+                #bd8cff;
+        }
+
+
+        /* =========================================
+           CARD CONTENT
+        ========================================= */
+
+        .gallery-content {
+
+            padding:
+                20px;
+        }
+
+
+        .gallery-content h3 {
+
+            font-size:
+                1.25rem;
+
+            margin-bottom:
+                7px;
+        }
+
+
+        .gallery-content p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.88rem;
+        }
+
+
+        .gallery-label {
+
+            display:
+                inline-block;
+
+            margin-top:
+                12px;
+
+            padding:
+                5px 12px;
+
+            border:
+                1px solid
+                rgba(212,175,55,0.2);
+
+            border-radius:
+                20px;
+
+            color:
+                var(--light-gold);
+
+            font-size:
+                0.68rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                1px;
+        }
+
+
+        /* =========================================
+           LANGUAGE SHOWCASE
+        ========================================= */
+
+        .languages-showcase {
+
+            background:
+                #050b12;
+        }
+
+
+        .language-logos {
+
+            max-width:
+                1200px;
+
+            margin:
+                auto;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(5,1fr);
+
+            gap:
+                18px;
+        }
+
+
+        .language-box {
+
+            min-height:
+                150px;
+
+            padding:
+                20px;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            text-align:
+                center;
+
+            background:
+                rgba(255,255,255,0.025);
+
+            border:
+                1px solid
+                rgba(212,175,55,0.12);
+
+            border-radius:
+                15px;
+
+            transition:
+                0.3s ease;
+        }
+
+
+        .language-box:hover {
+
+            transform:
+                translateY(-6px);
+
+            border-color:
+                rgba(212,175,55,0.45);
+        }
+
+
+        .language-icon {
+
+            width:
+                55px;
+
+            height:
+                55px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            border:
+                1px solid
+                rgba(212,175,55,0.3);
+
+            border-radius:
+                50%;
+
+            color:
+                var(--gold);
+
+            font-weight:
+                bold;
+
+            margin-bottom:
+                12px;
+
+            font-size:
+                0.9rem;
+        }
+
+
+        .language-box h3 {
+
+            font-size:
+                0.95rem;
+        }
+
+
+        /* =========================================
+           ARCHITECTURE
+        ========================================= */
+
+        .architecture {
+
+            background:
+                #03070c;
+        }
+
+
+        .architecture-container {
+
+            max-width:
+                1100px;
+
+            margin:
+                auto;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap:
+                15px;
+        }
+
+
+        .architecture-box {
+
+            padding:
+                30px 20px;
+
+            text-align:
+                center;
+
+            border:
+                1px solid
+                rgba(212,175,55,0.15);
+
+            border-radius:
+                15px;
+
+            background:
+                rgba(255,255,255,0.02);
+
+            position:
+                relative;
+        }
+
+
+        .architecture-box:not(:last-child)::after {
+
+            content:
+                "→";
+
+            position:
+                absolute;
+
+            right:
+                -17px;
+
+            top:
+                50%;
+
+            transform:
+                translateY(-50%);
+
+            color:
+                var(--gold);
+
+            font-size:
+                1.3rem;
+
+            z-index:
+                2;
+        }
+
+
+        .architecture-number {
+
+            width:
+                45px;
+
+            height:
+                45px;
+
+            margin:
+                0 auto 15px;
+
+            border:
+                1px solid
+                var(--gold);
+
+            border-radius:
+                50%;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            color:
+                var(--gold);
+        }
+
+
+        .architecture-box h3 {
+
+            margin-bottom:
+                8px;
+        }
+
+
+        .architecture-box p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.82rem;
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .cta {
+
+            text-align:
+                center;
+
+            padding:
+                100px 6%;
+
+            background:
+
+                radial-gradient(
+                    circle at center,
+                    rgba(212,175,55,0.1),
+                    transparent 50%
+                ),
+
+                #03070c;
+        }
+
+
+        .cta h2 {
+
+            font-size:
+                clamp(2rem,5vw,4rem);
+
+            margin-bottom:
+                20px;
+        }
+
+
+        .cta h2 span {
+
+            color:
+                var(--gold);
+        }
+
+
+        .cta p {
+
+            max-width:
+                650px;
+
+            margin:
+                auto auto 30px;
+
+            color:
+                var(--muted);
+        }
+
+
+        .cta-button {
+
+            display:
+                inline-block;
+
+            padding:
+                14px 28px;
+
+            border-radius:
+                8px;
+
+            background:
+                var(--gold);
+
+            color:
+                #050505;
+
+            font-weight:
+                bold;
+
+            transition:
+                0.3s ease;
+        }
+
+
+        .cta-button:hover {
+
+            background:
+                var(--light-gold);
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(212,175,55,0.2);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            padding:
+                30px 6%;
+
+            background:
+                #020509;
+
+            border-top:
+                1px solid
+                rgba(212,175,55,0.1);
+        }
+
+
+        .footer-content {
+
+            max-width:
+                1200px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                20px;
+        }
+
+
+        footer p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.85rem;
+        }
+
+
+        footer span {
+
+            color:
+                var(--gold);
+        }
+
+
+        /* =========================================
+           REVEAL ANIMATION
+        ========================================= */
+
+        .reveal {
+
+            opacity:
+                0;
+
+            transform:
+                translateY(35px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+
+        .reveal.show {
+
+            opacity:
+                1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =========================================
+           ROTATION
+        ========================================= */
+
+        @keyframes rotate {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .gallery-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+
+            .language-logos {
+
+                grid-template-columns:
+                    repeat(3,1fr);
+            }
+
+
+            .architecture-container {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+
+            .architecture-box:not(:last-child)::after {
+
+                display:
+                    none;
+            }
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 750px) {
+
+            .navbar {
+
+                width:
+                    90%;
+
+                min-height:
+                    70px;
+            }
+
+
+            .logo img {
+
+                width:
+                    42px;
+
+                height:
+                    42px;
+            }
+
+
+            .logo span {
+
+                font-size:
+                    0.82rem;
+            }
+
+
+            .menu-toggle {
+
+                display:
+                    flex;
+            }
+
+
+            .nav-links {
+
+                position:
+                    absolute;
+
+                top:
+                    70px;
+
+                left:
+                    0;
+
+                width:
+                    100%;
+
+                padding:
+                    15px 6% 25px;
+
+                background:
+                    rgba(3,7,12,0.98);
+
+                backdrop-filter:
+                    blur(20px);
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+
+                opacity:
+                    0;
+
+                visibility:
+                    hidden;
+
+                transform:
+                    translateY(-15px);
+
+                transition:
+                    0.3s ease;
+
+                border-bottom:
+                    1px solid
+                    rgba(212,175,55,0.15);
+            }
+
+
+            .nav-links.open {
+
+                opacity:
+                    1;
+
+                visibility:
+                    visible;
+
+                transform:
+                    translateY(0);
+            }
+
+
+            .nav-links a {
+
+                padding:
+                    15px 10px;
+
+                border-bottom:
+                    1px solid
+                    rgba(255,255,255,0.05);
+            }
+
+
+            .hero {
+
+                min-height:
+                    70vh;
+
+                padding:
+                    125px 6% 70px;
+            }
+
+
+            section {
+
+                padding:
+                    75px 5%;
+            }
+
+
+            .gallery-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .language-logos {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+
+            .architecture-container {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .architecture-box:not(:last-child)::after {
+
+                display:
+                    none;
+            }
+
+
+            .footer-content {
+
+                flex-direction:
+                    column;
+
+                text-align:
+                    center;
+            }
+        }
+
+
+        /* =========================================
+           SMALL PHONES
+        ========================================= */
+
+        @media (max-width: 380px) {
+
+            .logo span {
+
+                font-size:
+                    0.7rem;
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    2.25rem;
+            }
+
+
+            .hero p {
+
+                font-size:
+                    0.9rem;
+            }
+
+
+            section {
+
+                padding:
+                    60px 5%;
+            }
+
+
+            .filter-btn {
+
+                font-size:
+                    0.78rem;
+
+                padding:
+                    8px 13px;
+            }
+
+
+            .gallery-image,
+            .code-display {
+
+                height:
+                    210px;
+            }
+
+
+            .language-logos {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================= -->
+
+    <header id="header">
+
+        <nav class="navbar">
+
+            <a href="home.html" class="logo">
+
+                <img
+                    src="/img/logo.jpeg"
+                    alt="Full Stack Development Logo"
+                >
+
+                <span>
+                    Goldenice International
+                </span>
+
+            </a>
+
+
+            <div class="nav-links" id="navLinks">
+
+                <a href="/home.html">
+                    Home
+                </a>
+
+                <a href="/abot.html">
+                    About
+                </a>
+
+                <a href="#" class="active">
+                    Gallery
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                Development Gallery
+            </div>
+
+            <h1>
+                Where
+                <span>Ideas Become Code.</span>
+            </h1>
+
+            <p>
+                Explore programming languages, code structures,
+                websites, databases, APIs, mobile applications
+                and the technologies behind modern digital products.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         GALLERY
+    ========================================= -->
+
+    <section>
+
+        <div class="section-heading reveal">
+
+            <div class="label">
+                Explore Our Work
+            </div>
+
+            <h2>
+                Code. Design. Technology.
+            </h2>
+
+            <p>
+                A visual collection of the different areas involved
+                in modern software and full-stack development.
+            </p>
+
+        </div>
+
+
+
+        <!-- FILTERS -->
+
+        <div class="filter-container">
+
+            <button
+                class="filter-btn active"
+                data-filter="all">
+
+                All
+
+            </button>
+
+
+            <button
+                class="filter-btn"
+                data-filter="frontend">
+
+                Frontend
+
+            </button>
+
+
+            <button
+                class="filter-btn"
+                data-filter="backend">
+
+                Backend
+
+            </button>
+
+
+            <button
+                class="filter-btn"
+                data-filter="database">
+
+                Database
+
+            </button>
+
+
+            <button
+                class="filter-btn"
+                data-filter="language">
+
+                Languages
+
+            </button>
+
+
+            <button
+                class="filter-btn"
+                data-filter="mobile">
+
+                Mobile
+
+            </button>
+
+        </div>
+
+
+
+        <!-- GALLERY GRID -->
+
+        <div class="gallery-grid" id="galleryGrid">
+
+
+            <!-- =================================
+                 HTML
+            ================================= -->
+
+            <article
+                class="gallery-card reveal"
+                data-category="frontend language">
+
+                <div class="code-display">
+
+                    <div class="code-top">
+
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        <span class="code-key">
+                            &lt;html&gt;
+                        </span>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;
+                        <span class="code-blue">
+                            &lt;h1&gt;
+                        </span>
+
+                        Hello World
+
+                        <span class="code-blue">
+                            &lt;/h1&gt;
+                        </span>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;
+                        <span class="code-green">
+                            &lt;p&gt;
+                        </span>
+
+                        Build The Future
+
+                        <span class="code-green">
+                            &lt;/p&gt;
+                        </span>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        <span class="code-key">
+                            &lt;/html&gt;
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-content">
+
+                    <h3>
+                        HTML
+                    </h3>
+
+                    <p>
+                        The foundation and structure of modern websites.
+                    </p>
+
+                    <span class="gallery-label">
+                        Frontend
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================
+                 CSS
+            ================================= -->
+
+            <article
+                class="gallery-card reveal"
+                data-category="frontend language">
+
+                <div class="code-display">
+
+                    <div class="code-top">
+
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        <span class="code-purple">
+                            body
+                        </span> {
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;
+                        color:
+
+                        <span class="code-green">
+                            gold
+                        </span>;
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;
+                        display:
+
+                        <span class="code-blue">
+                            flex
+                        </span>;
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;
+                        padding:
+
+                        <span class="code-key">
+                            20px
+                        </span>;
+
+                    </div>
+
+                    <div class="code-line">
+                        }
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-content">
+
+                    <h3>
+                        CSS
+                    </h3>
+
+                    <p>
+                        Creates beautiful layouts, animations and responsive designs.
+                    </p>
+
+                    <span class="gallery-label">
+                        Design
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================
+                 JAVASCRIPT
+            ================================= -->
+
+            <article
+                class="gallery-card reveal"
+                data-category="frontend language">
+
+                <div class="code-display">
+
+                    <div class="code-top">
+
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        <span class="code-key">
+                            const
+                        </span>
+
+                        developer =
+
+                    </div>
+
+                    <div class="code-line">
+
+                        {
+
+                        <span class="code-green">
+                            name:
+                        </span>
+
+                        "Developer"
+
+                    </div>
+
+                    <div class="code-line">
+
+                        <span class="code-green">
+                            skills:
+                        </span>
+
+                        ["JS","HTML","CSS"]
+
+                    </div>
+
+                    <div class="code-line">
+
+                        };
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-content">
+
+                    <h3>
+                        JavaScript
+                    </h3>
+
+                    <p>
+                        Adds logic, interaction and dynamic functionality.
+                    </p>
+
+                    <span class="gallery-label">
+                        Programming
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================
+                 PYTHON
+            ================================= -->
+
+            <article
+                class="gallery-card reveal"
+                data-category="backend language">
+
+                <div class="code-display">
+
+                    <div class="code-top">
+
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        <span class="code-key">
+                            def
+                        </span>
+
+                        build_app():
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;
+                        print(
+
+                        <span class="code-green">
+                            "Building..."
+                        </span>
+
+                        )
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;
+                        <span class="code-key">
+                            return
+                        </span>
+
+                        True
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-content">
+
+                    <h3>
+                        Python
+                    </h3>
+
+                    <p>
+                        Used in backend development, automation, AI and data.
+                    </p>
+
+                    <span class="gallery-label">
+                        Backend
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================
+                 NODE JS
+            ================================= -->
+
+            <article
+                class="gallery-card reveal"
+                data-category="backend">
+
+                <div class="code-display">
+
+                    <div class="code-top">
+
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        <span class="code-key">
+                            const
+                        </span>
+
+                        express =
+
+                    </div>
+
+                    <div class="code-line">
+
+                        require(
+
+                        <span class="code-green">
+                            "express"
+                        </span>
+
+                        );
+
+                    </div>
+
+                    <div class="code-line">
+
+                        app.get(
+
+                        <span class="code-green">
+                            "/"
+                        </span>,
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;
+                        (req,res) =&gt;
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;
+                        res.send(
+
+                        <span class="code-green">
+                            "Hello"
+                        </span>
+
+                        )
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-content">
+
+                    <h3>
+                        Node.js
+                    </h3>
+
+                    <p>
+                        Runs JavaScript on the server to build backend applications.
+                    </p>
+
+                    <span class="gallery-label">
+                        Backend
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================
+                 DATABASE
+            ================================= -->
+
+            <article
+                class="gallery-card reveal"
+                data-category="database">
+
+                <div class="code-display">
+
+                    <div class="code-top">
+
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        <span class="code-key">
+                            SELECT
+                        </span>
+
+                        *
+
+                    </div>
+
+                    <div class="code-line">
+
+                        <span class="code-key">
+                            FROM
+                        </span>
+
+                        users
+
+                    </div>
+
+                    <div class="code-line">
+
+                        <span class="code-key">
+                            WHERE
+                        </span>
+
+                        active =
+
+                        <span class="code-green">
+                            true
+                        </span>;
+
+                    </div>
+
+                    <div class="code-line">
+
+                        <span class="code-blue">
+                            ORDER BY
+                        </span>
+
+                        created_at;
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-content">
+
+                    <h3>
+                        SQL Database
+                    </h3>
+
+                    <p>
+                        Stores and manages structured application information.
+                    </p>
+
+                    <span class="gallery-label">
+                        Database
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================
+                 MONGODB
+            ================================= -->
+
+            <article
+                class="gallery-card reveal"
+                data-category="database backend">
+
+                <div class="code-display">
+
+                    <div class="code-top">
+
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        db.users.insertOne({
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;
+                        name:
+
+                        <span class="code-green">
+                            "Developer"
+                        </span>,
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;
+                        role:
+
+                        <span class="code-green">
+                            "Full Stack"
+                        </span>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        });
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-content">
+
+                    <h3>
+                        MongoDB
+                    </h3>
+
+                    <p>
+                        A flexible NoSQL database used in modern applications.
+                    </p>
+
+                    <span class="gallery-label">
+                        NoSQL
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================
+                 REACT
+            ================================= -->
+
+            <article
+                class="gallery-card reveal"
+                data-category="frontend">
+
+                <div class="code-display">
+
+                    <div class="code-top">
+
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        <span class="code-key">
+                            function
+                        </span>
+
+                        App() {
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;
+                        <span class="code-key">
+                            return
+                        </span>
+
+                        (
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        &lt;h1&gt;
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        React App
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        &lt;/h1&gt;
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-content">
+
+                    <h3>
+                        React
+                    </h3>
+
+                    <p>
+                        A JavaScript library for building modern user interfaces.
+                    </p>
+
+                    <span class="gallery-label">
+                        UI Development
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================
+                 API
+            ================================= -->
+
+            <article
+                class="gallery-card reveal"
+                data-category="backend">
+
+                <div class="code-display">
+
+                    <div class="code-top">
+
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        GET
+
+                        <span class="code-green">
+                            /api/users
+                        </span>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        POST
+
+                        <span class="code-green">
+                            /api/login
+                        </span>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        PUT
+
+                        <span class="code-green">
+                            /api/profile
+                        </span>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        DELETE
+
+                        <span class="code-green">
+                            /api/account
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-content">
+
+                    <h3>
+                        REST API
+                    </h3>
+
+                    <p>
+                        Allows different applications and services to communicate.
+                    </p>
+
+                    <span class="gallery-label">
+                        Backend
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================
+                 MOBILE DEVELOPMENT
+            ================================= -->
+
+            <article
+                class="gallery-card reveal"
+                data-category="mobile">
+
+                <div class="code-display">
+
+                    <div class="code-top">
+
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        MobileApp({
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;
+                        platform:
+
+                        <span class="code-green">
+                            "Android"
+                        </span>,
+
+                    </div>
+
+                    <div class="code-line">
+
+                        &nbsp;&nbsp;
+                        platform:
+
+                        <span class="code-blue">
+                            "iOS"
+                        </span>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        });
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-content">
+
+                    <h3>
+                        Mobile Development
+                    </h3>
+
+                    <p>
+                        Building applications for smartphones and tablets.
+                    </p>
+
+                    <span class="gallery-label">
+                        Mobile
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================
+                 GITHUB
+            ================================= -->
+
+            <article
+                class="gallery-card reveal"
+                data-category="backend">
+
+                <div class="code-display">
+
+                    <div class="code-top">
+
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        git init
+
+                    </div>
+
+                    <div class="code-line">
+
+                        git add .
+
+                    </div>
+
+                    <div class="code-line">
+
+                        git commit
+
+                        <span class="code-green">
+                            -m
+                        </span>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        git push origin main
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-content">
+
+                    <h3>
+                        Git & GitHub
+                    </h3>
+
+                    <p>
+                        Helps developers manage, track and collaborate on code.
+                    </p>
+
+                    <span class="gallery-label">
+                        Version Control
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================
+                 SECURITY
+            ================================= -->
+
+            <article
+                class="gallery-card reveal"
+                data-category="backend">
+
+                <div class="code-display">
+
+                    <div class="code-top">
+
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        <span class="code-key">
+                            authenticate
+                        </span>(user);
+
+                    </div>
+
+                    <div class="code-line">
+
+                        password =
+
+                        <span class="code-green">
+                            hash()
+                        </span>;
+
+                    </div>
+
+                    <div class="code-line">
+
+                        token =
+
+                        <span class="code-blue">
+                            JWT
+                        </span>;
+
+                    </div>
+
+                    <div class="code-line">
+
+                        <span class="code-key">
+                            secure
+                        </span>(account);
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-content">
+
+                    <h3>
+                        Authentication
+                    </h3>
+
+                    <p>
+                        Protects applications and controls access to user accounts.
+                    </p>
+
+                    <span class="gallery-label">
+                        Security
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================
+                 CLOUD
+            ================================= -->
+
+            <article
+                class="gallery-card reveal"
+                data-category="backend">
+
+                <div class="code-display">
+
+                    <div class="code-top">
+
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        <span class="code-key">
+                            deploy
+                        </span>
+
+                        application
+
+                    </div>
+
+                    <div class="code-line">
+
+                        server:
+
+                        <span class="code-green">
+                            cloud
+                        </span>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        status:
+
+                        <span class="code-blue">
+                            online
+                        </span>
+
+                    </div>
+
+                    <div class="code-line">
+
+                        users:
+
+                        <span class="code-green">
+                            global
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-content">
+
+                    <h3>
+                        Cloud & Deployment
+                    </h3>
+
+                    <p>
+                        Makes applications accessible to users around the world.
+                    </p>
+
+                    <span class="gallery-label">
+                        Deployment
+                    </span>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         PROGRAMMING LANGUAGES
+    ========================================= -->
+
+    <section class="languages-showcase">
+
+        <div class="section-heading reveal">
+
+            <div class="label">
+                Programming Languages
+            </div>
+
+            <h2>
+                The Languages Behind The Code
+            </h2>
+
+            <p>
+                Every language has a purpose. Explore some of the technologies
+                developers use to build modern digital experiences.
+            </p>
+
+        </div>
+
+
+        <div class="language-logos">
+
+
+            <div class="language-box reveal">
+
+                <div class="language-icon">
+                    HTML
+                </div>
+
+                <h3>
+                    HTML
+                </h3>
+
+            </div>
+
+
+            <div class="language-box reveal">
+
+                <div class="language-icon">
+                    CSS
+                </div>
+
+                <h3>
+                    CSS
+                </h3>
+
+            </div>
+
+
+            <div class="language-box reveal">
+
+                <div class="language-icon">
+                    JS
+                </div>
+
+                <h3>
+                    JavaScript
+                </h3>
+
+            </div>
+
+
+            <div class="language-box reveal">
+
+                <div class="language-icon">
+                    PY
+                </div>
+
+                <h3>
+                    Python
+                </h3>
+
+            </div>
+
+
+            <div class="language-box reveal">
+
+                <div class="language-icon">
+                    PHP
+                </div>
+
+                <h3>
+                    PHP
+                </h3>
+
+            </div>
+
+
+            <div class="language-box reveal">
+
+                <div class="language-icon">
+                    JAVA
+                </div>
+
+                <h3>
+                    Java
+                </h3>
+
+            </div>
+
+
+            <div class="language-box reveal">
+
+                <div class="language-icon">
+                    C++
+                </div>
+
+                <h3>
+                    C++
+                </h3>
+
+            </div>
+
+
+            <div class="language-box reveal">
+
+                <div class="language-icon">
+                    C#
+                </div>
+
+                <h3>
+                    C#
+                </h3>
+
+            </div>
+
+
+            <div class="language-box reveal">
+
+                <div class="language-icon">
+                    GO
+                </div>
+
+                <h3>
+                    Go
+                </h3>
+
+            </div>
+
+
+            <div class="language-box reveal">
+
+                <div class="language-icon">
+                    SQL
+                </div>
+
+                <h3>
+                    SQL
+                </h3>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FULL STACK ARCHITECTURE
+    ========================================= -->
+
+    <section class="architecture">
+
+        <div class="section-heading reveal">
+
+            <div class="label">
+                How Everything Connects
+            </div>
+
+            <h2>
+                From User To Database
+            </h2>
+
+            <p>
+                A modern application contains several layers working
+                together to deliver a complete digital experience.
+            </p>
+
+        </div>
+
+
+        <div class="architecture-container">
+
+
+            <div class="architecture-box reveal">
+
+                <div class="architecture-number">
+                    01
+                </div>
+
+                <h3>
+                    User
+                </h3>
+
+                <p>
+                    The person interacting with the application.
+                </p>
+
+            </div>
+
+
+            <div class="architecture-box reveal">
+
+                <div class="architecture-number">
+                    02
+                </div>
+
+                <h3>
+                    Frontend
+                </h3>
+
+                <p>
+                    The interface the user sees and interacts with.
+                </p>
+
+            </div>
+
+
+            <div class="architecture-box reveal">
+
+                <div class="architecture-number">
+                    03
+                </div>
+
+                <h3>
+                    Backend
+                </h3>
+
+                <p>
+                    Processes requests and controls application logic.
+                </p>
+
+            </div>
+
+
+            <div class="architecture-box reveal">
+
+                <div class="architecture-number">
+                    04
+                </div>
+
+                <h3>
+                    Database
+                </h3>
+
+                <p>
+                    Stores and retrieves the application's information.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         CTA
+    ========================================= -->
+
+    <section class="cta">
+
+        <div class="reveal">
+
+            <div class="small-title">
+                Build Something Great
+            </div>
+
+            <h2>
+                Code Is The
+                <span>Beginning.</span>
+            </h2>
+
+            <p>
+                Great software starts with an idea, but it becomes real
+                through creativity, programming, design, testing and
+                continuous improvement.
+            </p>
+
+            <a
+                href="contact.html"
+                class="cta-button">
+
+                Start A Conversation
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <p>
+
+                ©
+                <span id="year"></span>
+
+                Full Stack Development.
+
+                All Rights Reserved.
+
+            </p>
+
+
+            <p>
+                Code • Design • Build • Innovate
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+
+        /* =========================================
+           MOBILE MENU
+        ========================================= */
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+                menuToggle.classList.toggle(
+                    "active"
+                );
+
+                navLinks.classList.toggle(
+                    "open"
+                );
+
+            }
+        );
+
+
+        /* Close mobile menu */
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        menuToggle.classList.remove(
+                            "active"
+                        );
+
+                        navLinks.classList.remove(
+                            "open"
+                        );
+
+                    }
+                );
+
+            });
+
+
+
+        /* =========================================
+           HEADER SCROLL
+        ========================================= */
+
+        const header =
+            document.getElementById("header");
+
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                if (window.scrollY > 50) {
+
+                    header.classList.add(
+                        "scrolled"
+                    );
+
+                } else {
+
+                    header.classList.remove(
+                        "scrolled"
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* =========================================
+           GALLERY FILTER
+        ========================================= */
+
+        const filterButtons =
+            document.querySelectorAll(
+                ".filter-btn"
+            );
+
+        const galleryCards =
+            document.querySelectorAll(
+                ".gallery-card"
+            );
+
+
+        filterButtons.forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    /* Remove active */
+
+                    filterButtons.forEach(btn => {
+
+                        btn.classList.remove(
+                            "active"
+                        );
+
+                    });
+
+
+                    /* Add active */
+
+                    button.classList.add(
+                        "active"
+                    );
+
+
+                    const filter =
+                        button.dataset.filter;
+
+
+                    galleryCards.forEach(card => {
+
+                        const categories =
+                            card.dataset.category;
+
+
+                        if (
+                            filter === "all" ||
+                            categories.includes(filter)
+                        ) {
+
+                            card.style.display =
+                                "block";
+
+                            setTimeout(() => {
+
+                                card.style.opacity =
+                                    "1";
+
+                                card.style.transform =
+                                    "translateY(0)";
+
+                            }, 50);
+
+                        } else {
+
+                            card.style.opacity =
+                                "0";
+
+                            card.style.transform =
+                                "translateY(15px)";
+
+                            setTimeout(() => {
+
+                                card.style.display =
+                                    "none";
+
+                            }, 250);
+
+                        }
+
+                    });
+
+                }
+            );
+
+        });
+
+
+
+        /* =========================================
+           REVEAL ANIMATION
+        ========================================= */
+
+        const revealElements =
+            document.querySelectorAll(
+                ".reveal"
+            );
+
+
+        const observer =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach(entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.classList.add(
+                                "show"
+                            );
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+
+
+        /* =========================================
+           YEAR
+        ========================================= */
+
+        document.getElementById("year")
+            .textContent =
+            new Date().getFullYear();
+
+
+
+        /* =========================================
+           ESCAPE KEY
+        ========================================= */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    menuToggle.classList.remove(
+                        "active"
+                    );
+
+                    navLinks.classList.remove(
+                        "open"
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
